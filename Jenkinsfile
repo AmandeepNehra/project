@@ -1,6 +1,6 @@
 def registry = 'https://devops1project.jfrog.io'
 def imageName = 'devops1project.jfrog.io/project-docker-docker-local/ttrend'
-def version   = '2.1.3'
+def version   = '2.1.4'
 pipeline {
     agent {
         node {
@@ -56,7 +56,7 @@ environment {
                 stage (" Docker Publish "){
             steps {
                 script {
-                   echo '<--------------- Docker Publish Started --------------->'  
+                   echo '<--------------- Docker Publish Started on jfrog artifactory--------------->'  
                     docker.withRegistry(registry, 'jfrog-jenkins-access-token'){
                         app.push()
                     }    
